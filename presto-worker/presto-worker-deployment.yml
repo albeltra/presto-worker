@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: presto=worker
+        app: presto-worker
     spec:
       containers:
       - image: beltranalex928/presto-worker:latest
