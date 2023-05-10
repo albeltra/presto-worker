@@ -18,3 +18,13 @@ spec:
         name: worker
         ports:
         - containerPort: 8080
+        volumeMounts:
+          - name: presto-config
+            mountPath: /opt/presto/etc/catalog
+            subPath: ''
+        ports:
+        - containerPort: 8080
+      volumes:
+        - persistentVolumeClaim:
+            claimName: presto-config
+          name: presto-config
