@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: presto-worker
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: presto-worker
+  template:
+    metadata:
+      labels:
+        app: presto=worker
+    spec:
+      containers:
+      - image: beltranalex928/presto-worker:latest
+        name: worker
+        ports:
+        - containerPort: 8080
